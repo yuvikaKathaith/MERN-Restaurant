@@ -18,7 +18,7 @@ const Reservation = () => {
     const handleReservation = async (e) => {
         e.preventDefault();
 
-        try {await axios.post("http://localhost:4000/api/v1/reservation/send",
+        try {await axios.post("https://mern-restaurant-backend-three.vercel.app/api/v1/reservation/send",
               { firstName, lastName, email, phone, date, time },
               {
                 headers: {
