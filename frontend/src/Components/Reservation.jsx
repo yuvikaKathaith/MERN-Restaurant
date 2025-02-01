@@ -31,9 +31,9 @@ const Reservation = () => {
           );
   
           // Ensure toast receives a string message
-          // const successMessage = response.data?.message || "Reservation successful!";
-          // toast.success(successMessage);
-          toast.success(response.data?.message);
+          const successMessage = response.data?.message || "Reservation successful!";
+          toast.success(successMessage);
+          // toast.success(response.data?.message);
 
   
           // Reset form fields
