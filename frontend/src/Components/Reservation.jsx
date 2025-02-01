@@ -18,7 +18,7 @@ const Reservation = () => {
     const handleReservation = async (e) => {
         e.preventDefault();
 
-        try {await axios.post("https://mern-restaurant-backend-s4e9.onrender.com/api/v1/reservation/send",
+        try {await axios.post("https://mern-restaurant-t5kw.onrender.com/api/v1/reservation/send",
               { firstName, lastName, email, phone, date, time },
               {
                 headers: {
