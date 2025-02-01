@@ -30,12 +30,9 @@ const Reservation = () => {
               }
           );
   
-          // Ensure response data is accessed correctly
-          if (response.data) {
-              toast.success(response.data.message || "Reservation successful!");
-          } else {
-              toast.success("Reservation successful!");
-          }
+          // Ensure toast receives a string message
+          const successMessage = response.data?.message || "Reservation successful!";
+          toast.success(successMessage);
   
           // Reset form fields
           setFirstName("");
@@ -51,8 +48,6 @@ const Reservation = () => {
           toast.error(errorMessage);
           console.log(error);
       }
-  };
-  
   };
 
   return (
