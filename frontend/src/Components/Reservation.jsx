@@ -16,19 +16,21 @@ const Reservation = () => {
     const navigate = useNavigate()
 
     const handleReservation = async (e) => {
-        e.preventDefault();
-
-        try {await axios.post("https://mern-restaurant-t5kw.onrender.com/api/v1/reservation/send",
+      e.preventDefault();
+  
+      try {
+          const response = await axios.post(
+              "https://mern-restaurant-t5kw.onrender.com/api/v1/reservation/send",
               { firstName, lastName, email, phone, date, time },
               {
-                headers: {
-                  "Content-Type": "application/json"
-                },
-
-                withCredentials: true,
+                  headers: {
+                      "Content-Type": "application/json"
+                  },
+                  withCredentials: true,
               }
           );
-          toast.success(data.data);
+  
+          toast.success(response.data); // Use response.data instead of data.data
   
           setFirstName("");
           setLastName("");
@@ -37,16 +39,13 @@ const Reservation = () => {
           setTime("");
           setDate("");
           navigate('/success');
-        } 
-        catch (error) {
-          // Check if there's a response from the server and extract the message
-          const errorMessage = error.response?.data?.errors?.[0];
-          // const errorMessage = error.response?.data?.errors?.[0] || "An unknown error occurred.";
-
+      } 
+      catch (error) {
+          const errorMessage = error.response?.data?.errors?.[0] || "An unknown error occurred.";
           toast.error(errorMessage);
           console.log(error);
       }
-    }
+  };
 
   return (
     <section className="reservation py-16">
