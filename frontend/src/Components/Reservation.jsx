@@ -40,7 +40,9 @@ const Reservation = () => {
         } 
         catch (error) {
           // Check if there's a response from the server and extract the message
-          const errorMessage = error.response?.data?.errors?.[0] || "An unknown error occurred.";
+          const errorMessage = error.response?.data?.errors?.[0];
+          // const errorMessage = error.response?.data?.errors?.[0] || "An unknown error occurred.";
+
           toast.error(errorMessage);
           console.log(error);
       }
